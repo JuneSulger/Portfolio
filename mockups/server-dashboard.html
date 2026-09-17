@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette — Tableau de bord du serveur</title>
+<style>
+  :root {
+    --ivory: #FAF9F5;
+    --slate: #141413;
+    --clay: #D97757;
+    --line: #E5E1D8;
+    --muted: #8A8578;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--slate);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  .app {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 760px;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-dot { width: 32px; height: 32px; border-radius: 8px; background: var(--clay); }
+  .brand-text { font-family: Georgia, serif; font-weight: 700; font-size: 19px; }
+  .server-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .status { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #3F7D4F; }
+  .status-dot { width: 9px; height: 9px; border-radius: 50%; background: #3F7D4F; }
+
+  .breadcrumb { padding: 16px 32px 0; font-size: 13px; color: var(--muted); }
+  .breadcrumb b { color: var(--slate); }
+
+  .grid {
+    padding: 20px 32px 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s, transform .15s;
+  }
+  .card:hover { border-color: var(--clay); transform: translateY(-2px); }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+  .icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 15px; }
+  .pill { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; display: flex; align-items: center; gap: 5px; }
+  .pill-up { background: #E9F3EC; color: #3F7D4F; }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #3F7D4F; }
+  .card-name { font-size: 16px; font-weight: 700; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.4; }
+  .card-foot { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; margin-top: 2px; }
+  .port { font-family: monospace; background: var(--ivory); padding: 2px 6px; border-radius: 5px; }
+  .go { color: var(--clay); font-weight: 700; }
+
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0 32px; margin-top: 8px; }
+
+  .subpage {
+    margin: 0 32px 32px;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #FBF9F4;
+  }
+  .subpage-arrow { font-size: 20px; color: var(--muted); }
+  .subpage-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .subpage-text b { color: var(--slate); }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <div>
+        <div class="brand-text">Mon serveur maison</div>
+        <div class="server-meta">serveur.local · HP ProDesk 400 G3</div>
+      </div>
+    </div>
+    <div class="status"><div class="status-dot"></div> En ligne</div>
+  </div>
+
+  <div class="breadcrumb">Accueil du serveur — clique sur une application pour l'ouvrir</div>
+
+  <div class="grid">
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#6C4FD1;">P</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Portainer</div>
+        <div class="card-desc">Vue d'ensemble de tous les conteneurs Docker : démarrer, arrêter, consulter les logs.</div>
+      </div>
+      <div class="card-foot"><span class="port">:9000</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#00A4DC;">J</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Jellyfin</div>
+        <div class="card-desc">Bibliothèque de films et séries — l'endroit où tu regardes ce que Sonarr et Radarr ont récupéré.</div>
+      </div>
+      <div class="card-foot"><span class="port">:8096</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#2B7A3F;">R</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Radarr</div>
+        <div class="card-desc">Recherche et organise automatiquement les films dans ta bibliothèque.</div>
+      </div>
+      <div class="card-foot"><span class="port">:7878</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#3A5FCD;">S</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Sonarr</div>
+        <div class="card-desc">Même principe que Radarr, mais pour le suivi des séries épisode par épisode.</div>
+      </div>
+      <div class="card-foot"><span class="port">:8989</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#D97757;">Pr</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Prowlarr</div>
+        <div class="card-desc">Centralise les indexeurs utilisés par Sonarr et Radarr pour trouver le contenu.</div>
+      </div>
+      <div class="card-foot"><span class="port">:9696</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#B45309;">H</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">HelpDesk Trainer</div>
+        <div class="card-desc">Ton propre projet, conteneurisé et hébergé à côté des autres services.</div>
+      </div>
+      <div class="card-foot"><span class="port">:3000</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>
