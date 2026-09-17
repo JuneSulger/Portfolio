@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maquette — HelpDesk Trainer</title>
+<style>
+  :root {
+    --ivory: #FAF9F5;
+    --slate: #141413;
+    --clay: #D97757;
+    --line: #E5E1D8;
+    --muted: #8A8578;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--slate);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  .app {
+    width: 100%;
+    max-width: 1200px;
+    height: 760px;
+    display: flex;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    background: #fff;
+    border-right: 1px solid var(--line);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 30px; height: 30px; border-radius: 8px; background: var(--clay); }
+  .logo-text { font-family: Georgia, serif; font-weight: 700; font-size: 18px; }
+  .label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .card { border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .field-label { font-size: 11px; color: var(--muted); }
+  .field-value { font-size: 14px; font-weight: 600; }
+  .badge { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #EFEAE0; color: #55503F; width: fit-content; }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+  .dot.done { background: var(--clay); }
+  .dot.current { border: 2px solid var(--clay); }
+  .dot.todo { border: 2px solid var(--line); }
+  .done-text { color: #55503F; text-decoration: line-through; }
+  .todo-text { color: #B5AF9E; }
+  .main { flex-grow: 1; display: flex; flex-direction: column; min-width: 0; }
+  .header { height: 64px; flex-shrink: 0; border-bottom: 1px solid var(--line); padding: 0 28px; display: flex; align-items: center; justify-content: space-between; }
+  .header-title { font-size: 15px; font-weight: 600; }
+  .header-sub { font-size: 12px; color: var(--muted); }
+  .badge-accent { background: #FBF3EE; color: var(--clay); }
+  .chat { flex-grow: 1; padding: 24px 28px; display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+  .msg { display: flex; gap: 12px; max-width: 62%; }
+  .avatar { width: 34px; height: 34px; border-radius: 50%; background: #EFEAE0; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #55503F; }
+  .from { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .bubble { border-radius: 4px 16px 16px 16px; padding: 12px 15px; font-size: 14px; line-height: 1.5; background: #fff; border: 1px solid var(--line); }
+  .msg.mine { align-self: flex-end; flex-direction: column; align-items: flex-end; }
+  .msg.mine .bubble { background: var(--clay); color: #fff; border-radius: 16px 4px 16px 16px; }
+  .options { flex-shrink: 0; border-top: 1px solid var(--line); padding: 18px 28px 24px; display: flex; flex-direction: column; gap: 10px; background: #fff; }
+  .options-label { font-size: 12px; font-weight: 600; color: var(--muted); }
+  .opt { text-align: left; border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 14px; background: var(--ivory); cursor: pointer; font-family: inherit; transition: border-color .15s, background .15s; }
+  .opt:hover { border-color: var(--clay); background: #FBF3EE; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar">
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <div class="logo-text">HelpDesk Trainer</div>
+    </div>
+
+    <div>
+      <div class="label">Scénario</div>
+      <div class="card">
+        <div>
+          <div class="field-label">Client</div>
+          <div class="field-value">Sophie Lambrecht</div>
+        </div>
+        <div>
+          <div class="field-label">Sujet</div>
+          <div class="field-value" style="font-weight:400;">Imprimante réseau introuvable</div>
+        </div>
+        <span class="badge">Niveau débutant</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="label">Progression</div>
+      <div class="steps">
+        <div class="step"><div class="dot done"></div><span class="done-text">Accueil du client</span></div>
+        <div class="step"><div class="dot current"></div><span style="font-weight:600;">Diagnostic</span></div>
+        <div class="step"><div class="dot todo"></div><span class="todo-text">Résolution</span></div>
+        <div class="step"><div class="dot todo"></div><span class="todo-text">Clôture du ticket</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div>
+        <div class="header-title">Ticket #2026-114 — Imprimante réseau introuvable</div>
+        <div class="header-sub">Simulation de mise en situation — support niveau 1</div>
+      </div>
+      <span class="badge badge-accent">Étape 2 / 4</span>
+    </div>
+
+    <div class="chat">
+      <div class="msg">
+        <div class="avatar">SL</div>
+        <div>
+          <div class="from">Sophie Lambrecht</div>
+          <div class="bubble">Bonjour, je n'arrive plus à imprimer depuis ce matin. L'imprimante du service n'apparaît même plus dans la liste sur mon ordinateur.</div>
+        </div>
+      </div>
+
+      <div class="msg mine">
+        <div class="from">Toi</div>
+        <div class="bubble">D'accord, je regarde ça avec vous. Est-ce que d'autres personnes de votre service rencontrent le même souci en ce moment ?</div>
+      </div>
+
+      <div class="msg">
+        <div class="avatar">SL</div>
+        <div>
+          <div class="from">Sophie Lambrecht</div>
+          <div class="bubble">Non, je crois que je suis la seule concernée pour l'instant.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="options">
+      <div class="options-label">Comment réagis-tu ?</div>
+      <button type="button" class="opt">Vérifier avec elle si l'imprimante est bien allumée et connectée au réseau</button>
+      <button type="button" class="opt">Demander depuis quand exactement le problème est apparu</button>
+      <button type="button" class="opt">Redémarrer directement le service d'impression sans poser d'autre question</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
