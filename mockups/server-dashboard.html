@@ -79,21 +79,9 @@
   .port { font-family: monospace; background: var(--ivory); padding: 2px 6px; border-radius: 5px; }
   .go { color: var(--clay); font-weight: 700; }
 
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0 32px; margin-top: 8px; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0 32px; margin: 8px 0 2px; }
+  .pill-infra { background: #FBF3EE; color: var(--clay); }
 
-  .subpage {
-    margin: 0 32px 32px;
-    border: 1px dashed var(--line);
-    border-radius: 14px;
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: #FBF9F4;
-  }
-  .subpage-arrow { font-size: 20px; color: var(--muted); }
-  .subpage-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
-  .subpage-text b { color: var(--slate); }
 </style>
 </head>
 <body>
@@ -105,7 +93,7 @@
       <div class="brand-dot"></div>
       <div>
         <div class="brand-text">Mon serveur maison</div>
-        <div class="server-meta">serveur.local · HP ProDesk 400 G3</div>
+        <div class="server-meta">serveur.local · Proxmox VE · HP ProDesk 400 G3</div>
       </div>
     </div>
     <div class="status"><div class="status-dot"></div> En ligne</div>
@@ -113,7 +101,37 @@
 
   <div class="breadcrumb">Accueil du serveur — clique sur une application pour l'ouvrir</div>
 
-  <div class="grid">
+  <div class="section-label">Infrastructure</div>
+  <div class="grid" style="padding-top: 12px;">
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#B91C1C;">F</div>
+        <span class="pill pill-infra">VM isolée</span>
+      </div>
+      <div>
+        <div class="card-name">FortiGate</div>
+        <div class="card-desc">Pare-feu virtuel — policies, VPN. Tourne sur un réseau interne séparé, pas encore branché au trafic réel.</div>
+      </div>
+      <div class="card-foot"><span class="port">VM Proxmox</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#1F2937;">Pi</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Pi-hole</div>
+        <div class="card-desc">DNS filtrant — bloque les pubs et trackers pour tout le réseau maison.</div>
+      </div>
+      <div class="card-foot"><span class="port">:80</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+  </div>
+
+  <div class="section-label">Services applicatifs</div>
+  <div class="grid" style="padding-top: 12px;">
 
     <a class="card" href="#">
       <div class="card-top">
@@ -185,6 +203,18 @@
         <div class="card-desc">Ton propre projet, conteneurisé et hébergé à côté des autres services.</div>
       </div>
       <div class="card-foot"><span class="port">:3000</span><span class="go">Ouvrir →</span></div>
+    </a>
+
+    <a class="card" href="#">
+      <div class="card-top">
+        <div class="icon" style="background:#175DDC;">V</div>
+        <span class="pill pill-up"><span class="pill-dot"></span>Actif</span>
+      </div>
+      <div>
+        <div class="card-name">Vaultwarden</div>
+        <div class="card-desc">Gestionnaire de mots de passe auto-hébergé, compatible Bitwarden.</div>
+      </div>
+      <div class="card-foot"><span class="port">:8080</span><span class="go">Ouvrir →</span></div>
     </a>
 
   </div>
