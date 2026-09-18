@@ -530,6 +530,1013 @@
     color: var(--mauve);
     opacity: 0.7;
   }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: linear-gradient(180deg, #ffffff08, transparent), var(--mauve-mid);
+    border: 1px solid var(--mauve-soft);
+    border-radius: 10px;
+    padding: 11px 20px 11px 16px;
+    box-shadow: 0 4px 14px rgba(196,168,240,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--mauve);
+    text-decoration: none;
+    width: fit-content;
+    transition: transform 0.15s, box-shadow 0.15s, color 0.2s;
+  }
+  .project-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+  .project-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(196,168,240,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+    color: var(--text);
+  }
+
+  /* DOC CARDS */
+  .docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .doc-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 0.2s;
+  }
+  .doc-card:hover { border-color: rgba(196,168,240,0.38); }
+  .doc-icon { font-size: 1.8rem; }
+  .doc-card h3 { font-size: 15px; font-weight: 500; }
+  .doc-card p { font-size: 13px; color: var(--muted); }
+  .doc-actions { display: flex; gap: 0.7rem; margin-top: auto; padding-top: 0.5rem; }
+
+  /* DIVIDER */
+  .divider {
+    position: relative; z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative; z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-text { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+  .footer-chess { font-size: 1.1rem; opacity: 0.4; }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .chess-deco { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+<a href="#" class="nav-logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+    <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(16,16)">
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(0)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(45)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(90)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(135)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(225)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(270)"/>
+        <ellipse cx="0" cy="-10" rx="3" ry="6" fill="#a07dd4" opacity="0.6" transform="rotate(315)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(22.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(67.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(112.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(157.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(202.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(247.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(292.5)"/>
+        <ellipse cx="0" cy="-6.5" rx="2.5" ry="5" fill="#c4a8f0" opacity="0.9" transform="rotate(337.5)"/>
+        <circle cx="0" cy="0" r="4" fill="#1e1929" stroke="#c4a8f0" stroke-width="0.8"/>
+        <circle cx="0" cy="0" r="2.2" fill="#c4a8f0"/>
+        <circle cx="0" cy="0" r="0.9" fill="#0e0c14"/>
+      </g>
+    </svg>
+    <span>June Sultan-Gerej</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#experience">Parcours</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="cv.pdf" download="CV_June_Sultan-Gerej.pdf" style="background:var(--mauve);color:#0e0c14;padding:7px 18px;border-radius:50px;font-weight:600;font-size:13px;box-shadow:0 0 14px rgba(196,168,240,0.4);transition:all 0.2s;letter-spacing:0.01em;text-decoration:none;" onmouseover="this.style.boxShadow='0 0 24px rgba(196,168,240,0.7)';this.style.background='#d4bcf5'" onmouseout="this.style.boxShadow='0 0 14px rgba(196,168,240,0.4)';this.style.background='var(--mauve)'">Mon CV</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  
+  <div class="hero-content">
+    <div style="margin-bottom: 1.5rem;">
+      <svg width="90" height="90" viewBox="-75 -75 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pg1n" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c4a8f0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7c5cbf" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="pg2n" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a07dd4" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#5a3d8a" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(0)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(45)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(90)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(135)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(180)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(225)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(270)"/>
+  <ellipse cx="0" cy="-52" rx="7" ry="20" fill="url(#pg2n)" transform="rotate(315)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(22.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(67.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(112.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(157.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(202.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(247.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(292.5)"/>
+  <ellipse cx="0" cy="-34" rx="6" ry="16" fill="url(#pg1n)" transform="rotate(337.5)"/>
+  <circle cx="0" cy="0" r="14" fill="#1e1929" stroke="#c4a8f0" stroke-width="1"/>
+  <circle cx="0" cy="0" r="8" fill="#c4a8f0" opacity="0.9"/>
+  <circle cx="0" cy="0" r="3.5" fill="#0e0c14"/>
+</svg>
+    </div>
+    <h1>June <em>Sultan-Gerej</em></h1>
+    <p class="hero-role">
+      <span id="typed-role"></span><span class="cursor"></span>
+    </p>
+    <div class="status-badge" style="margin-bottom: 1.5rem; margin-top: 0.75rem;">
+      <div class="status-dot"></div>
+      Disponible immédiatement
+    </div>
+    <p class="hero-desc">
+      Administratrice système et réseaux orientée virtualisation, en formation chez Technocité.
+      Un parcours confirmé en office management &amp; support technique, 
+      reconverti vers ma vraie passion : l'infrastructure et les technologies.
+      Curieuse, calme, autodidacte.
+    </p>
+    <div class="hero-actions">
+      <a href="cv.pdf" download="CV_June_Sultan-Gerej.pdf" class="btn btn-primary">⬇ Téléchargez mon CV</a>
+      <a href="https://www.linkedin.com/in/june-sultan-gerej-65b17a2ab/" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+      <a href="mailto:sulgerjune@gmail.com" class="btn btn-ghost">✉ Email</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📍 <span>Mons, Belgique</span></div>
+      <div class="hero-meta-item">🚗 <span>Permis B</span></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-eyebrow">// à propos</div>
+  </div>
+  <div class="about-layout reveal">
+    <p class="about-text">
+      Après un bachelier en sciences psychologiques et plusieurs années en office management et support client, 
+      j'ai décidé de suivre ma curiosité pour les technologies jusqu'au bout. 
+      Je me forme aujourd'hui à l'administration réseau et à la virtualisation chez Technocité — 
+      une reconversion construite sur la pratique, l'autodidaxie et une vraie envie de comprendre comment les choses fonctionnent en profondeur.
+    </p>
+    <div class="info-card">
+      <div class="info-card-label">Formation actuelle</div>
+      <div class="info-card-value">Administrateur système &amp; réseaux orienté virtualisation — Technocité · mars – novembre 2026</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Formation précédente</div>
+      <div class="info-card-value">Bachelier en Sciences psychologiques — UMons (2021–2024)</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Langues</div>
+      <div class="info-card-value">Français (natif) · Anglais B1</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="reveal">
+    <div class="section-eyebrow">// compétences</div>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-cat">
+      <div class="skill-cat-icon">🌐</div>
+      <h3>Bases en réseau</h3>
+      <div class="tags">
+        <span class="tag hi">Cisco CCNA M1</span>
+        <span class="tag hi">TCP/IP</span>
+        <span class="tag hi">DHCP / DNS</span>
+        <span class="tag hi">VLAN</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-icon">🖥️</div>
+      <h3>Virtualisation</h3>
+      <div class="tags">
+        <span class="tag hi">Proxmox</span>
+        <span class="tag hi">VMware</span>
+        <span class="tag hi">Hyper-V</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-icon">⚙️</div>
+      <h3>Système</h3>
+      <div class="tags">
+        <span class="tag hi">Windows Server</span>
+        <span class="tag hi">Active Directory</span>
+        <span class="tag hi">PowerShell</span>
+        <span class="tag hi">Pack Office</span>
+        <span class="tag hi">Exchange Server 2019</span>
+        <span class="tag hi">WSUS</span>
+        <span class="tag hi">RDS</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-icon">✦</div>
+      <h3>Outils</h3>
+      <div class="tags">
+        <span class="tag hi">HTML &amp; CSS</span>
+        <span class="tag hi">Montage PC</span>
+        <span class="tag hi">GitHub</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 4rem;" class="reveal">
+    <div class="section-eyebrow" style="margin-bottom: 2rem;">// qualités personnelles</div>
+    <div class="qualities-row">
+      <div class="quality-pill">♟ Calme</div>
+      <div class="quality-pill">◎ Autonomie</div>
+      <div class="quality-pill">◌ Gestion des priorités</div>
+    </div>
+    <div class="qualities-row" style="margin-top: 0.6rem;">
+      <div class="quality-pill">◈ Capacité d'analyse</div>
+      <div class="quality-pill">◇ Adaptabilité</div>
+      <div class="quality-pill">◉ Autodidaxie</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal">
+    <div class="section-eyebrow">// parcours</div>
+  </div>
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-date">Mars 2019 → Avril 2021</div>
+      <div class="tl-role">Office Manager</div>
+      <div class="tl-company">Galimmo</div>
+      <ul class="tl-list">
+        <li>Gestion des bases de données et comptabilité fournisseurs</li>
+        <li>Coordination du support technique</li>
+        <li>Rédaction et suivi des contrats de specialty leasing</li>
+        <li>Reporting KPI et suivi des prestataires</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Novembre 2018 → Mars 2019</div>
+      <div class="tl-role">Shopping Center Management Business Support</div>
+      <div class="tl-company">CBRE PAM</div>
+      <ul class="tl-list">
+        <li>Gestion et optimisation du specialty leasing</li>
+        <li>Analyse et suivi du chiffre d'affaires / turnover</li>
+        <li>Gestion des sinistres d'assurances</li>
+        <li>Rédaction et encodage administratif</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mai 2018 → Octobre 2018</div>
+      <div class="tl-role">Assistante service achat</div>
+      <div class="tl-company">Les Entreprises Esmer</div>
+      <ul class="tl-list">
+        <li>Préparation et mise à jour des dossiers As-Built</li>
+        <li>Suivi et encodage de la facturation</li>
+        <li>Gestion des litiges</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <div class="section-eyebrow">// projets</div>
+  </div>
+  <div class="projects-grid reveal">
+    <div class="project-card">
+      <div class="project-top">
+        <div>
+          <div class="project-title">Home lab personnel</div>
+          <div class="project-sub">Proxmox · Docker · FortiGate</div>
+        </div>
+        <div class="project-status">
+          <div class="status-dot"></div>
+          En cours
+        </div>
+      </div>
+      <p class="project-desc">
+        Montage d'un serveur maison de zéro sur un mini-PC reconditionné : hyperviseur Proxmox VE, conteneurisation Docker, pare-feu virtuel FortiGate en environnement isolé, puis mise en place progressive d'un nom de domaine (Cloudflare Tunnel) et d'un accès distant sécurisé via VPN.
+      </p>
+      <ul class="project-steps">
+        <li>Proxmox VE + sécurisation de l'accès (SSH, 2FA, pare-feu)</li>
+        <li>VM FortiGate isolée — policies, VPN, pratique du FortiOS</li>
+        <li>Stack applicative sous Docker (média, mots de passe, tableau de bord)</li>
+        <li>Accès distant via VPN (Tailscale) et nom de domaine personnel</li>
+      </ul>
+      <a href="mockups/server-dashboard.html" target="_blank" class="project-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Voir l'architecture
+      </a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div>
+          <div class="project-title">HelpDesk Trainer</div>
+          <div class="project-sub">App web · simulations de support N1</div>
+        </div>
+        <div class="project-status">
+          <div class="status-dot"></div>
+          En cours
+        </div>
+      </div>
+      <p class="project-desc">
+        Plateforme web pour s'entraîner aux mises en situation de Help Desk niveau 1 : un client simulé expose un problème, l'apprenant navigue dans un arbre de dialogue pour diagnostiquer et résoudre le ticket.
+      </p>
+      <ul class="project-steps">
+        <li>Arbre de dialogue généré puis servi en JSON statique</li>
+        <li>Interface de simulation avec suivi de progression par étapes</li>
+        <li>Pensée pour être partagée avec la promo de formation</li>
+      </ul>
+      <a href="mockups/helpdesk-trainer.html" target="_blank" class="project-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        Voir l'interface
+      </a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div>
+          <div class="project-title">Phase 2.0 — HelpDesk Trainer</div>
+          <div class="project-sub">Développement applicatif avec chatbox</div>
+        </div>
+        <div class="project-status upcoming">
+          <div class="status-dot"></div>
+          Projet à venir
+        </div>
+      </div>
+      <p class="project-desc">
+        Prochaine évolution du HelpDesk Trainer : remplacer l'arbre de dialogue statique par une véritable chatbox interactive, pour des échanges plus naturels et des mises en situation moins prévisibles.
+      </p>
+      <ul class="project-steps">
+        <li>Conception de l'interface de chatbox</li>
+        <li>Logique conversationnelle dynamique côté applicatif</li>
+        <li>Itération à partir des retours de la version 1</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="reveal">
+    <div class="section-eyebrow">// centres d'intérêt</div>
+  </div>
+  <div class="interests-grid reveal">
+    <div class="interest-card">
+      <div class="interest-icon">♟</div>
+      <h3>Échecs</h3>
+      <p>En apprentissage — j'aime la patience et la profondeur stratégique que le jeu demande.</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">🎮</div>
+      <h3>Jeux vidéo</h3>
+      <p>Elden Ring, World of Warcraft, Outer Wilds &amp; Hollow Knight — des univers qui demandent de l'exploration et de la réflexion.</p>
+    </div>
+    <div class="interest-card">
+      <div class="interest-icon">🎵</div>
+      <h3>Musique</h3>
+      <p>Rone, Radiohead, Blonde Redhead — une esthétique sonore tournée vers l'introspection.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<hr class="divider">
+
+<footer>
+  <p class="footer-text">© 2026 June Sultan-Gerej</p>
+  <span class="footer-chess">♟ ♛ ♝</span>
+</footer>
+
+<script>
+  const roles = [
+    "Administratrice Systèmes & Réseaux orientée Virtualisation",
+    "Helpdesk IT de niveau 1",
+    "Curieuse · Calme · Autodidacte",
+  ];
+  let ri = 0, ci = 0, del = false;
+  const el = document.getElementById("typed-role");
+  function type() {
+    const cur = roles[ri];
+    if (!del) {
+      el.textContent = cur.slice(0, ++ci);
+      if (ci === cur.length) { del = true; setTimeout(type, 2200); return; }
+    } else {
+      el.textContent = cur.slice(0, --ci);
+      if (ci === 0) { del = false; ri = (ri + 1) % roles.length; }
+    }
+    setTimeout(type, del ? 35 : 55);
+  }
+  type();
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>June Sultan-Gerej — Portfolio IT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0e0c14;
+    --bg2:      #16121f;
+    --bg3:      #1e1929;
+    --border:   #2e2740;
+    --mauve:    #c4a8f0;
+    --mauve-dim:  rgba(196,168,240,0.10);
+    --mauve-mid:  rgba(196,168,240,0.22);
+    --mauve-soft: #a07dd4;
+    --text:     #ede8f7;
+    --muted:    #8878a8;
+    --mono:     'JetBrains Mono', monospace;
+    --serif:    'DM Serif Display', serif;
+    --sans:     'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(14,12,20,0.82);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-contacts {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    border-right: 1px solid var(--border);
+    padding-right: 1.5rem;
+  }
+  .nav-contacts a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-contacts a:hover { color: var(--mauve); }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--mauve);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--mauve); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 2.5rem 5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  .hero-content { max-width: 680px; }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--mauve-dim);
+    border: 1px solid rgba(196,168,240,0.28);
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 12.5px;
+    color: var(--mauve);
+    margin-bottom: 2rem;
+    font-family: var(--mono);
+    letter-spacing: 0.03em;
+  }
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px rgba(74,222,128,0.6);
+    animation: breathe 3s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+    color: var(--text);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--mauve);
+  }
+
+  .hero-role {
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.04em;
+  }
+  .cursor {
+    display: inline-block;
+    width: 2px; height: 0.9em;
+    background: var(--mauve);
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1.2s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
+    font-weight: 300;
+    text-align: justify;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.22s;
+    text-decoration: none;
+    border: none;
+    font-family: var(--sans);
+  }
+  .btn-primary {
+    background: var(--mauve);
+    color: #0e0c14;
+  }
+  .btn-primary:hover { background: #d4bcf5; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { background: var(--bg2); border-color: var(--mauve-soft); }
+
+  .hero-meta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-family: var(--mono);
+  }
+  .hero-meta-item span { color: var(--text); }
+
+  
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--mauve);
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin-bottom: 2.75rem;
+    line-height: 1.5;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ABOUT */
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 640px) { .about-layout { grid-template-columns: 1fr; } }
+
+  .about-text {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.9;
+    font-weight: 300;
+    margin-bottom: 0.25rem;
+    text-align: justify;
+  }
+  .info-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .info-card:hover { border-color: rgba(196,168,240,0.35); }
+  .info-card-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--mauve-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .info-card-value { font-size: 14.5px; color: var(--text); }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem;
+  }
+  .skill-cat {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .skill-cat:hover { border-color: rgba(196,168,240,0.3); }
+  .skill-cat-icon { font-size: 1.3rem; margin-bottom: 0.65rem; }
+  .skill-cat h3 {
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 0.9rem;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 3px 11px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .tag:hover { border-color: var(--mauve); color: var(--mauve); }
+  .tag.hi {
+    border-color: rgba(196,168,240,0.38);
+    color: var(--mauve);
+    background: var(--mauve-dim);
+  }
+
+  /* QUALITES */
+  .qualities-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: -1rem;
+  }
+  .quality-pill {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: var(--muted);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quality-pill:hover {
+    border-color: rgba(196,168,240,0.4);
+    color: var(--mauve);
+    background: var(--mauve-dim);
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--mauve-soft), transparent);
+    opacity: 0.35;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 1.25rem;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 7px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--mauve);
+    opacity: 0.7;
+  }
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--mauve-soft);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+  .tl-role { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .tl-company {
+    font-size: 12.5px;
+    color: var(--mauve-soft);
+    font-style: italic;
+    margin-bottom: 0.6rem;
+  }
+  .tl-list { list-style: none; }
+  .tl-list li {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .tl-list li::before {
+    content: '◦';
+    position: absolute;
+    left: 0;
+    color: var(--mauve);
+    opacity: 0.6;
+  }
+
+  /* INTERESTS */
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  .interest-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .interest-card:hover { border-color: rgba(196,168,240,0.35); }
+  .interest-icon { font-size: 1.6rem; margin-bottom: 0.65rem; }
+  .interest-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 0.4rem; }
+  .interest-card p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .contact-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-item:hover {
+    border-color: rgba(196,168,240,0.4);
+    background: var(--bg3);
+  }
+  .contact-icon {
+    font-size: 1.3rem;
+    width: 42px; height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mauve-dim);
+    border: 1px solid rgba(196,168,240,0.22);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+  .contact-label { font-size: 11.5px; color: var(--muted); margin-bottom: 2px; }
+  .contact-value { font-size: 13.5px; color: var(--text); font-family: var(--mono); }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 0.2s;
+  }
+  .project-card:hover { border-color: rgba(196,168,240,0.38); }
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .project-title { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .project-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
+  .project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--mauve-dim);
+    border: 1px solid rgba(196,168,240,0.28);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 11px;
+    color: var(--mauve);
+    font-family: var(--mono);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .project-status .status-dot { background: #fbbf24; box-shadow: 0 0 6px rgba(251,191,36,0.6); }
+  .project-status.upcoming {
+    background: var(--bg3);
+    border-color: var(--border);
+    color: var(--muted);
+  }
+  .project-status.upcoming .status-dot {
+    background: var(--muted);
+    box-shadow: none;
+    animation: none;
+  }
+  .project-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .project-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .project-steps li { list-style: none; padding-left: 1.1rem; position: relative; }
+  .project-steps li::before {
+    content: '◦';
+    position: absolute;
+    left: 0;
+    color: var(--mauve);
+    opacity: 0.7;
+  }
   .project-card .tags { gap: 8px; margin-top: 2px; }
   .project-card .tag {
     font-size: 12px;
